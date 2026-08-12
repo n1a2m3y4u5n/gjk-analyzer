@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minkowski GJK Analyzer - 충돌 감지 시각화</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Minkowski GJK Analyzer</h1>
+            <p class="subtitle">민코프스키 차 기반 충돌 감지 알고리즘 인터랙티브 시각화</p>
+        </header>
+
+        <div class="canvas-container">
+            <div class="canvas-wrapper">
+                <h3>World Space (월드 공간)</h3>
+                <canvas id="worldCanvas" width="700" height="600"></canvas>
+            </div>
+            <div class="canvas-wrapper">
+                <h3>Configuration Space (형상 공간)</h3>
+                <canvas id="configCanvas" width="700" height="600"></canvas>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <h3>알고리즘 모드</h3>
+                <div class="button-group">
+                    <button id="modeGJK" class="mode-btn active">GJK</button>
+                    <button id="modeSAT" class="mode-btn">SAT</button>
+                    <button id="modeBOTH" class="mode-btn">BOTH</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h3>도형 제어</h3>
+                <div class="button-group">
+                    <button id="btnRandom" class="control-btn">🎲 랜덤 도형</button>
+                    <button id="btnReset" class="control-btn">🔄 리셋</button>
+                </div>
+            </div>
+
+            <div class="info-panel">
+                <h3>성능 정보</h3>
+                <div id="collisionStatus" class="status-text">준비 중...</div>
+                <div id="algorithmInfo" class="algorithm-info">
+                    <div id="gjkInfo"></div>
+                    <div id="satInfo"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📖 사용 방법</h3>
+            <ul>
+                <li><strong>마우스 드래그:</strong> 도형을 움직여 충돌 테스트</li>
+                <li><strong>알고리즘 모드:</strong> GJK, SAT, 또는 두 알고리즘 비교</li>
+                <li><strong>랜덤 도형:</strong> 다양한 복잡도의 도형으로 성능 비교</li>
+                <li><strong>오른쪽 화면:</strong> 민코프스키 차(Minkowski Difference) 실시간 시각화</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2025 Minkowski GJK Analyzer | 탐구보고서 프로젝트</p>
+            <p>GJK vs SAT 알고리즘 성능 비교 - O(1) vs O(n)</p>
+        </footer>
+    </div>
+
+    <script src="shapes.js"></script>
+    <script src="gjk.js"></script>
+    <script src="sat.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
